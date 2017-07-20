@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>UITableViewCell: default</string>
+		<key>index</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>UITableViewCell: RightDetail</string>
+		<key>index</key>
+		<string>1</string>
+	</dict>
+    <dict>
+        <key>title</key>
+        <string>UITableViewCell: LeftDetail</string>
+        <key>index</key>
+        <string>2</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>UITableViewCell: 自定义cell，甄士隐梦幻识通灵  贾雨村风尘怀闺秀</string>
+        <key>index</key>
+        <string>3</string>
+    </dict>
+</array>
+</plist>
