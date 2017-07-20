@@ -21,10 +21,11 @@ class ListCell: UITableViewCell {
     ///
     func setUp() {
         self.contentView.addSubview(cellName)
+        // 约束
         cellName.translatesAutoresizingMaskIntoConstraints = false
         cellName.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         cellName.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
-        cellName.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+        cellName.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
     }
     
     /// 复写初始化方法

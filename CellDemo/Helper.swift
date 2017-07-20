@@ -14,6 +14,7 @@ class Helper {
 
 extension Helper {
     
+    /// 读取plist返回数组
     public class func readPlist(forResource name: String?, ofType ext: String?) -> [Any]{
         
         let path = Bundle.main.path(forResource: name , ofType: ext)
@@ -23,15 +24,14 @@ extension Helper {
         let tempArray: [[String: Any]] = try! PropertyListSerialization.propertyList(from: plistData!, options: [], format: nil) as! [[String : Any]]
         
         return tempArray
-        
-        // 构造模型数组
-        //        var cells = [ListCellModel]()
-        //        cells = tempArray.map{
-        //            ListCellModel(
-        //                index: $0["index"] as! String,
-        //                title: $0["title"] as! String
-        //            )
-        //        }
-        
     }
+    // 构造模型数组
+//    var cells = [ListCellModel]()
+//    cells = tempArray.map{
+//        ListCellModel(
+//            index: $0["index"] as! String,
+//            title: $0["title"] as! String
+//        )
+//    }
+
 }

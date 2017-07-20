@@ -18,6 +18,15 @@
 		2344D7E91F2072CF00DA8DED /* List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7E81F2072CF00DA8DED /* List.plist */; };
 		2344D7EB1F20742B00DA8DED /* ListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D7EA1F20742B00DA8DED /* ListCellModel.swift */; };
 		2344D7ED1F2075B400DA8DED /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D7EC1F2075B400DA8DED /* Helper.swift */; };
+		2344D7F51F20AFC800DA8DED /* fcyHLwlg_400x400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7EF1F20AFC800DA8DED /* fcyHLwlg_400x400.jpg */; };
+		2344D7F61F20AFC800DA8DED /* fcyHLwlg_bigger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7F01F20AFC800DA8DED /* fcyHLwlg_bigger.jpg */; };
+		2344D7F71F20AFC800DA8DED /* fcyHLwlg_normal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7F11F20AFC800DA8DED /* fcyHLwlg_normal.jpg */; };
+		2344D7F81F20AFC800DA8DED /* 出境游@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7F21F20AFC800DA8DED /* 出境游@2x.png */; };
+		2344D7F91F20AFC800DA8DED /* 国内游@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7F31F20AFC800DA8DED /* 国内游@2x.png */; };
+		2344D7FA1F20AFC800DA8DED /* 酒店@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2344D7F41F20AFC800DA8DED /* 酒店@2x.png */; };
+		2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */; };
+		2344D8061F20B35200DA8DED /* CustomCellWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */; };
+		2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +64,15 @@
 		2344D7E81F2072CF00DA8DED /* List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = List.plist; sourceTree = "<group>"; };
 		2344D7EA1F20742B00DA8DED /* ListCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCellModel.swift; sourceTree = "<group>"; };
 		2344D7EC1F2075B400DA8DED /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		2344D7EF1F20AFC800DA8DED /* fcyHLwlg_400x400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fcyHLwlg_400x400.jpg; sourceTree = "<group>"; };
+		2344D7F01F20AFC800DA8DED /* fcyHLwlg_bigger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fcyHLwlg_bigger.jpg; sourceTree = "<group>"; };
+		2344D7F11F20AFC800DA8DED /* fcyHLwlg_normal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fcyHLwlg_normal.jpg; sourceTree = "<group>"; };
+		2344D7F21F20AFC800DA8DED /* 出境游@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "出境游@2x.png"; sourceTree = "<group>"; };
+		2344D7F31F20AFC800DA8DED /* 国内游@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "国内游@2x.png"; sourceTree = "<group>"; };
+		2344D7F41F20AFC800DA8DED /* 酒店@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "酒店@2x.png"; sourceTree = "<group>"; };
+		2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowXibCellViewController.swift; sourceTree = "<group>"; };
+		2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithXib.swift; sourceTree = "<group>"; };
+		2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellWithXib.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +129,9 @@
 				2344D7EA1F20742B00DA8DED /* ListCellModel.swift */,
 				2344D7E61F206D4700DA8DED /* ListCell.swift */,
 				2344D7EC1F2075B400DA8DED /* Helper.swift */,
+				2344D7FB1F20B0E300DA8DED /* Custom_Xib */,
 				2344D7BC1F206CE500DA8DED /* Main.storyboard */,
+				2344D7EE1F20AFC800DA8DED /* Resource */,
 				2344D7BF1F206CE500DA8DED /* Assets.xcassets */,
 				2344D7C11F206CE500DA8DED /* LaunchScreen.storyboard */,
 				2344D7C41F206CE500DA8DED /* Info.plist */,
@@ -135,6 +155,29 @@
 				2344D7DA1F206CE600DA8DED /* Info.plist */,
 			);
 			path = CellDemoUITests;
+			sourceTree = "<group>";
+		};
+		2344D7EE1F20AFC800DA8DED /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2344D7EF1F20AFC800DA8DED /* fcyHLwlg_400x400.jpg */,
+				2344D7F01F20AFC800DA8DED /* fcyHLwlg_bigger.jpg */,
+				2344D7F11F20AFC800DA8DED /* fcyHLwlg_normal.jpg */,
+				2344D7F21F20AFC800DA8DED /* 出境游@2x.png */,
+				2344D7F31F20AFC800DA8DED /* 国内游@2x.png */,
+				2344D7F41F20AFC800DA8DED /* 酒店@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2344D7FB1F20B0E300DA8DED /* Custom_Xib */ = {
+			isa = PBXGroup;
+			children = (
+				2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */,
+				2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */,
+				2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */,
+			);
+			path = Custom_Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,8 +291,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2344D7C31F206CE500DA8DED /* LaunchScreen.storyboard in Resources */,
+				2344D7FA1F20AFC800DA8DED /* 酒店@2x.png in Resources */,
+				2344D7F91F20AFC800DA8DED /* 国内游@2x.png in Resources */,
+				2344D7F51F20AFC800DA8DED /* fcyHLwlg_400x400.jpg in Resources */,
 				2344D7C01F206CE500DA8DED /* Assets.xcassets in Resources */,
+				2344D7F61F20AFC800DA8DED /* fcyHLwlg_bigger.jpg in Resources */,
+				2344D7F81F20AFC800DA8DED /* 出境游@2x.png in Resources */,
+				2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */,
 				2344D7E91F2072CF00DA8DED /* List.plist in Resources */,
+				2344D7F71F20AFC800DA8DED /* fcyHLwlg_normal.jpg in Resources */,
 				2344D7BE1F206CE500DA8DED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +328,10 @@
 				2344D7E71F206D4700DA8DED /* ListCell.swift in Sources */,
 				2344D7BB1F206CE500DA8DED /* ViewController.swift in Sources */,
 				2344D7ED1F2075B400DA8DED /* Helper.swift in Sources */,
+				2344D8061F20B35200DA8DED /* CustomCellWithXib.swift in Sources */,
 				2344D7B91F206CE500DA8DED /* AppDelegate.swift in Sources */,
 				2344D7EB1F20742B00DA8DED /* ListCellModel.swift in Sources */,
+				2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
