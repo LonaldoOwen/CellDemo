@@ -6,4 +6,15 @@
 //  Copyright © 2017年 libowen. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct ListCellModel {
+    
+    let index: String
+    let title: String
+    
+    init(index: String, title: String) {
+        self.index = index
+        self.title = title
+    }
+}
