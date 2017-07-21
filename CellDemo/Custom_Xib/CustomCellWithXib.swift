@@ -9,6 +9,12 @@
 import UIKit
 
 class CustomCellWithXib: UITableViewCell {
+    
+    
+    @IBOutlet weak var avator: UIImageView!
+    
+    @IBOutlet weak var title: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

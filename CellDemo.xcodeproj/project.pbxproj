@@ -125,10 +125,10 @@
 			children = (
 				2344D7B81F206CE500DA8DED /* AppDelegate.swift */,
 				2344D7BA1F206CE500DA8DED /* ViewController.swift */,
-				2344D7E81F2072CF00DA8DED /* List.plist */,
 				2344D7EA1F20742B00DA8DED /* ListCellModel.swift */,
 				2344D7E61F206D4700DA8DED /* ListCell.swift */,
 				2344D7EC1F2075B400DA8DED /* Helper.swift */,
+				2344D7E81F2072CF00DA8DED /* List.plist */,
 				2344D7FB1F20B0E300DA8DED /* Custom_Xib */,
 				2344D7BC1F206CE500DA8DED /* Main.storyboard */,
 				2344D7EE1F20AFC800DA8DED /* Resource */,
@@ -582,6 +582,7 @@
 				2344D7DF1F206CE600DA8DED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2344D7E01F206CE600DA8DED /* Build configuration list for PBXNativeTarget "CellDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +591,7 @@
 				2344D7E21F206CE600DA8DED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2344D7E31F206CE600DA8DED /* Build configuration list for PBXNativeTarget "CellDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +600,7 @@
 				2344D7E51F206CE600DA8DED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

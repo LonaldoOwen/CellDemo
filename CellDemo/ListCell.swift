@@ -13,7 +13,7 @@ class ListCell: UITableViewCell {
     /// 自定义控件
     let cellName: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.lightGray
+        //label.backgroundColor = UIColor.lightGray
         label.numberOfLines = 0
         return label
     }()
@@ -33,6 +33,7 @@ class ListCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         //
         setUp()
+        self.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

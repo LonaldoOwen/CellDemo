@@ -22,9 +22,15 @@
     </dict>
     <dict>
         <key>title</key>
-        <string>UITableViewCell: 自定义cell，甄士隐梦幻识通灵  贾雨村风尘怀闺秀</string>
+        <string>UITableViewCell: 自定义cell，代码继承UITableViewCell</string>
         <key>index</key>
         <string>3</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>UITableViewCell: 自定义cell，Xib继承UITableViewCell</string>
+        <key>index</key>
+        <string>4</string>
     </dict>
 </array>
 </plist>

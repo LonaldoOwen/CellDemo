@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     var listModels: [ListCellModel]?
@@ -22,7 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.rowHeight = 100
+        tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         let views: [String: Any] = ["table": tableView, "root": view]
@@ -62,6 +64,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         cell?.listCellModel = listModels?[indexPath.row]
         return cell!
+    }
+    
+    /// table view delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 4 {
+            let showXibCellVC: ShowXibCellViewController = ShowXibCellViewController()
+            self.show(showXibCellVC, sender: nil)
+        }
     }
 
 }
