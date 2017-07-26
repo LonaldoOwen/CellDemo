@@ -106,6 +106,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2332B6921F28A5D100EFD978 /* Custom_ContentView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom_ContentView;
+			sourceTree = "<group>";
+		};
+		2332B6931F28A5D100EFD978 /* Custom_Inherit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom_Inherit;
+			sourceTree = "<group>";
+		};
+		2332B6941F28A5D100EFD978 /* Custom_Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom_Storyboard;
+			sourceTree = "<group>";
+		};
 		2344D7AC1F206CE500DA8DED = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +156,11 @@
 				2344D7E61F206D4700DA8DED /* ListCell.swift */,
 				2344D7EC1F2075B400DA8DED /* Helper.swift */,
 				2344D7E81F2072CF00DA8DED /* List.plist */,
-				5AE072561F27A01D0023BE63 /* CustomView */,
+				2332B6921F28A5D100EFD978 /* Custom_ContentView */,
+				2332B6931F28A5D100EFD978 /* Custom_Inherit */,
+				2332B6941F28A5D100EFD978 /* Custom_Storyboard */,
 				2344D7FB1F20B0E300DA8DED /* Custom_Xib */,
+				5AE072561F27A01D0023BE63 /* CustomView */,
 				2344D7BC1F206CE500DA8DED /* Main.storyboard */,
 				2344D7EE1F20AFC800DA8DED /* Resource */,
 				2344D7BF1F206CE500DA8DED /* Assets.xcassets */,

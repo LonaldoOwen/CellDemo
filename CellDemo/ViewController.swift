@@ -62,6 +62,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if cell == nil {
             cell = ListCell(style: .default, reuseIdentifier: identifier)
         }
+        // 验证closure的使用
+        cell?.cellTapClosure = {
+            print("Tap cell index: \(indexPath.row)")
+        }
         cell?.listCellModel = listModels?[indexPath.row]
         return cell!
     }

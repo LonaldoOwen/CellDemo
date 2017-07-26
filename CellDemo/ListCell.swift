@@ -17,8 +17,10 @@ class ListCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    // 定义closure
+    var cellTapClosure: (() -> Void)!
     
-    ///
+    /// 自定义
     func setUp() {
         self.contentView.addSubview(cellName)
         // 约束
@@ -48,6 +50,9 @@ class ListCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        print("ListCell: setSelected: \(selected)")
+        // 调用closure
+        cellTapClosure()
 
         // Configure the view for the selected state
     }
@@ -56,8 +61,9 @@ class ListCell: UITableViewCell {
     var listCellModel: ListCellModel? {
         didSet {
             self.cellName.text = listCellModel?.title
-            
         }
     }
+    
+    ///
 
 }
