@@ -27,6 +27,9 @@
 		2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */; };
 		2344D8061F20B35200DA8DED /* CustomCellWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */; };
 		2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */; };
+		5AE072581F27A0410023BE63 /* CustomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE072571F27A0410023BE63 /* CustomItemView.swift */; };
+		5AE0725A1F27A0A20023BE63 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE072591F27A0A20023BE63 /* TempViewController.swift */; };
+		5AE0725C1F27A0C20023BE63 /* CustomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowXibCellViewController.swift; sourceTree = "<group>"; };
 		2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithXib.swift; sourceTree = "<group>"; };
 		2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellWithXib.xib; sourceTree = "<group>"; };
+		5AE072571F27A0410023BE63 /* CustomItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomItemView.swift; path = ../../CustomItemView.swift; sourceTree = "<group>"; };
+		5AE072591F27A0A20023BE63 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
+		5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 				2344D7E61F206D4700DA8DED /* ListCell.swift */,
 				2344D7EC1F2075B400DA8DED /* Helper.swift */,
 				2344D7E81F2072CF00DA8DED /* List.plist */,
+				5AE072561F27A01D0023BE63 /* CustomView */,
 				2344D7FB1F20B0E300DA8DED /* Custom_Xib */,
 				2344D7BC1F206CE500DA8DED /* Main.storyboard */,
 				2344D7EE1F20AFC800DA8DED /* Resource */,
@@ -178,6 +185,16 @@
 				2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */,
 			);
 			path = Custom_Xib;
+			sourceTree = "<group>";
+		};
+		5AE072561F27A01D0023BE63 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				5AE072591F27A0A20023BE63 /* TempViewController.swift */,
+				5AE072571F27A0410023BE63 /* CustomItemView.swift */,
+				5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +265,7 @@
 				TargetAttributes = {
 					2344D7B41F206CE500DA8DED = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = KM6P947ZT3;
+						DevelopmentTeam = 37FEVCHYTJ;
 						ProvisioningStyle = Automatic;
 					};
 					2344D7C81F206CE600DA8DED = {
@@ -290,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE0725C1F27A0C20023BE63 /* CustomItemView.xib in Resources */,
 				2344D7C31F206CE500DA8DED /* LaunchScreen.storyboard in Resources */,
 				2344D7FA1F20AFC800DA8DED /* 酒店@2x.png in Resources */,
 				2344D7F91F20AFC800DA8DED /* 国内游@2x.png in Resources */,
@@ -329,6 +347,8 @@
 				2344D7BB1F206CE500DA8DED /* ViewController.swift in Sources */,
 				2344D7ED1F2075B400DA8DED /* Helper.swift in Sources */,
 				2344D8061F20B35200DA8DED /* CustomCellWithXib.swift in Sources */,
+				5AE072581F27A0410023BE63 /* CustomItemView.swift in Sources */,
+				5AE0725A1F27A0A20023BE63 /* TempViewController.swift in Sources */,
 				2344D7B91F206CE500DA8DED /* AppDelegate.swift in Sources */,
 				2344D7EB1F20742B00DA8DED /* ListCellModel.swift in Sources */,
 				2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */,
@@ -483,8 +503,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KM6P947ZT3;
+				DEVELOPMENT_TEAM = 37FEVCHYTJ;
 				INFOPLIST_FILE = CellDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.owen.CellDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,8 +517,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KM6P947ZT3;
+				DEVELOPMENT_TEAM = 37FEVCHYTJ;
 				INFOPLIST_FILE = CellDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.owen.CellDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
