@@ -87,6 +87,21 @@ class QQFriendsList: UITableViewController {
         let headerView = SectionHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
         headerView.title.text = "Section Header"
         headerView.backgroundColor = UIColor.orange
+        headerView.tag = 100 + section
+        // 处理tap action
+        headerView.headerTapedHandler = {
+            print("taped section: \(section)")
+            /// 注意：
+            /// 1、这里FriendsList要使用Class类型（reference type），这样更改item的store property时，lists就更新了
+            /// 如果使用struct，不会自动更新（value type）
+            let item: FriendsList = self.lists[section]
+            // togging isExpanded property
+            item.isExpanded = !item.isExpanded
+            // update table view section
+            //tableView.reloadSections(IndexSet.init(integer: section), with: .none)
+            tableView.reloadData()
+            print("isExpanded: \(item.isExpanded)")
+        }
         return headerView
     }
     

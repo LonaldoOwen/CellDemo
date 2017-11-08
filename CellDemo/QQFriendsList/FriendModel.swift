@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FriendsList {
+class FriendsList {
     
     struct Friend {
         var id: String

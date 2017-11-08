@@ -20,18 +20,41 @@ class SectionHeaderView: UIView {
     
     let title: UILabel = {
         let label = UILabel()
+        label.backgroundColor = UIColor.lightGray
         label.numberOfLines = 1
         return label
     }()
     
+    // define a closure handle tap
+    var headerTapedHandler: (() -> Void)!
+    
     func setUpUI() {
         // add a title
         self.addSubview(title)
+        
+        // add constraints
         title.translatesAutoresizingMaskIntoConstraints = false
-        // 约束有点问题，没居中？？
-        let views = ["title": title]
-        let constraints_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[title]-|", options: .alignAllCenterX, metrics: nil, views: views)
-        self.addConstraints(constraints_H)
+        /// 约束有点问题，没居中？？
+        /// 如何使用VFl设置label在view上居中？？？
+        let views = ["title": title, "superview": self]
+        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-50-[title]-(>=10)-|", options: [], metrics: nil, views: views)
+        self.addConstraints(VFL_H)
+        title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+//        let VFL_V = NSLayoutConstraint.constraints(withVisualFormat: "V:[superview][title(==21)]", options: .alignAllCenterY, metrics: nil, views: views)
+//        self.addConstraints(VFL_V)
+        /// 可行
+//        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50).isActive = true
+//        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: 10).isActive = true
+//        title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
+        // add gesture recognizer
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapAction))
+        self.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func handleTapAction() {
+        // 调用closure
+        headerTapedHandler()
     }
     
     override init(frame: CGRect) {
