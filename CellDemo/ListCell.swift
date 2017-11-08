@@ -20,7 +20,7 @@ class ListCell: UITableViewCell {
     // 定义closure
     var cellTapClosure: (() -> Void)!
     
-    /// 自定义
+    /// 自定义UI
     func setUp() {
         self.contentView.addSubview(cellName)
         // 约束

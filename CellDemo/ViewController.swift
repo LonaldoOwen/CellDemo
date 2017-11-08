@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var tableView: UITableView!
     var listModels: [ListCellModel]?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    /// table view data source
+    /// MARK: - table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,11 +71,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell!
     }
     
-    /// table view delegate
+    /// MARK: - table view delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
         if indexPath.row == 4 {
             let showXibCellVC: ShowXibCellViewController = ShowXibCellViewController()
             self.show(showXibCellVC, sender: nil)
+        } else if indexPath.row == 5 {
+            let friendsVC: QQFriendsList = self.storyboard?.instantiateViewController(withIdentifier: "QQFriendListVC") as! QQFriendsList
+            self.show(friendsVC, sender: nil)
         }
     }
 
