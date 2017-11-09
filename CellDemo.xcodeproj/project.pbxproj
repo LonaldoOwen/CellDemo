@@ -27,6 +27,10 @@
 		2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D7FC1F20B15100DA8DED /* ShowXibCellViewController.swift */; };
 		2344D8061F20B35200DA8DED /* CustomCellWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2344D8041F20B35200DA8DED /* CustomCellWithXib.swift */; };
 		2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */; };
+		235E38BD1FB41F5B00FDAB36 /* more2.png in Resources */ = {isa = PBXBuildFile; fileRef = 235E38BC1FB41EEC00FDAB36 /* more2.png */; };
+		235E38BE1FB41F8A00FDAB36 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 235E38BA1FB40FBF00FDAB36 /* more.png */; };
+		235E38C01FB421F900FDAB36 /* more_unfold2.png in Resources */ = {isa = PBXBuildFile; fileRef = 235E38BF1FB4201400FDAB36 /* more_unfold2.png */; };
+		235E38C11FB423AF00FDAB36 /* more_unfold.png in Resources */ = {isa = PBXBuildFile; fileRef = 235E38B81FB40B9E00FDAB36 /* more_unfold.png */; };
 		5A2A4C891FB1FC8E008575DC /* Friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A4C881FB1FC8E008575DC /* Friends.plist */; };
 		5A2A4C8B1FB20C5D008575DC /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A4C8A1FB20C5D008575DC /* SectionHeaderView.swift */; };
 		5AC55FC01FB1F3C100E4C10A /* QQFriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC55FBF1FB1F3C100E4C10A /* QQFriendsList.swift */; };
@@ -82,7 +86,8 @@
 		2344D8051F20B35200DA8DED /* CustomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellWithXib.xib; sourceTree = "<group>"; };
 		235E38B81FB40B9E00FDAB36 /* more_unfold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_unfold.png; sourceTree = "<group>"; };
 		235E38BA1FB40FBF00FDAB36 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
-		235E38BB1FB40FBF00FDAB36 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
+		235E38BC1FB41EEC00FDAB36 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
+		235E38BF1FB4201400FDAB36 /* more_unfold2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_unfold2.png; sourceTree = "<group>"; };
 		5A2A4C881FB1FC8E008575DC /* Friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Friends.plist; sourceTree = "<group>"; };
 		5A2A4C8A1FB20C5D008575DC /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		5AC55FBF1FB1F3C100E4C10A /* QQFriendsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQFriendsList.swift; sourceTree = "<group>"; };
@@ -209,9 +214,10 @@
 				2344D7F21F20AFC800DA8DED /* 出境游@2x.png */,
 				2344D7F31F20AFC800DA8DED /* 国内游@2x.png */,
 				2344D7F41F20AFC800DA8DED /* 酒店@2x.png */,
-				235E38B81FB40B9E00FDAB36 /* more_unfold.png */,
 				235E38BA1FB40FBF00FDAB36 /* more.png */,
-				235E38BB1FB40FBF00FDAB36 /* more2.png */,
+				235E38B81FB40B9E00FDAB36 /* more_unfold.png */,
+				235E38BC1FB41EEC00FDAB36 /* more2.png */,
+				235E38BF1FB4201400FDAB36 /* more_unfold2.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -360,16 +366,20 @@
 				5AE0725C1F27A0C20023BE63 /* CustomItemView.xib in Resources */,
 				2344D7C31F206CE500DA8DED /* LaunchScreen.storyboard in Resources */,
 				2344D7FA1F20AFC800DA8DED /* 酒店@2x.png in Resources */,
+				235E38BD1FB41F5B00FDAB36 /* more2.png in Resources */,
 				2344D7F91F20AFC800DA8DED /* 国内游@2x.png in Resources */,
 				2344D7F51F20AFC800DA8DED /* fcyHLwlg_400x400.jpg in Resources */,
+				235E38C11FB423AF00FDAB36 /* more_unfold.png in Resources */,
 				2344D7C01F206CE500DA8DED /* Assets.xcassets in Resources */,
 				2344D7F61F20AFC800DA8DED /* fcyHLwlg_bigger.jpg in Resources */,
 				2344D7F81F20AFC800DA8DED /* 出境游@2x.png in Resources */,
 				2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */,
 				5A2A4C891FB1FC8E008575DC /* Friends.plist in Resources */,
+				235E38BE1FB41F8A00FDAB36 /* more.png in Resources */,
 				2344D7E91F2072CF00DA8DED /* List.plist in Resources */,
 				2344D7F71F20AFC800DA8DED /* fcyHLwlg_normal.jpg in Resources */,
 				2344D7BE1F206CE500DA8DED /* Main.storyboard in Resources */,
+				235E38C01FB421F900FDAB36 /* more_unfold2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

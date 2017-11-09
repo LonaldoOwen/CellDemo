@@ -32,13 +32,13 @@
         <scene sceneID="3Dv-Ai-7nW">
             <objects>
                 <tableViewController storyboardIdentifier="QQFriendListVC" id="pWJ-xE-FpN" customClass="QQFriendsList" customModule="CellDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="or9-tA-9L4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="or9-tA-9L4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" textLabel="6C6-wn-jJt" style="IBUITableViewCellStyleDefault" id="Pad-Iu-3jy">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pad-Iu-3jy" id="naW-d5-iaW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -64,6 +64,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQu-43-w7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1822" y="-647"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="oeZ-Df-U3m">
+            <objects>
+                <tableViewController id="ftt-Dq-5tP" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="vkk-zl-SwC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eSu-YW-d8l">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSu-YW-d8l" id="Mho-zx-2kM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ftt-Dq-5tP" id="ewD-VR-FPw"/>
+                            <outlet property="delegate" destination="ftt-Dq-5tP" id="zfu-Jt-Dxr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbm-Vb-P4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="98"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="F4P-yr-KSn">
@@ -156,18 +184,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="more.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-sg-yNp">
-                                <rect key="frame" x="149" y="463" width="77" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_unfold2.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-sg-yNp">
+                                <rect key="frame" x="156" y="583" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="T6i-tz-fDS"/>
+                                    <constraint firstAttribute="width" constant="64" id="c18-Nb-Mjh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nz8-CO-KhC" firstAttribute="centerX" secondItem="uoD-pK-s5v" secondAttribute="centerX" id="68U-1u-htq"/>
                             <constraint firstItem="94V-nf-o6C" firstAttribute="centerY" secondItem="uoD-pK-s5v" secondAttribute="centerY" id="MMa-GU-cEU"/>
+                            <constraint firstItem="fmV-sg-yNp" firstAttribute="centerX" secondItem="uoD-pK-s5v" secondAttribute="centerX" id="XiX-8M-EPV"/>
                             <constraint firstItem="Nz8-CO-KhC" firstAttribute="centerY" secondItem="uoD-pK-s5v" secondAttribute="centerY" id="XyD-hg-WBZ"/>
                             <constraint firstItem="94V-nf-o6C" firstAttribute="leading" secondItem="uoD-pK-s5v" secondAttribute="leading" constant="100" id="Yky-7e-YcC"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="94V-nf-o6C" secondAttribute="trailing" constant="20" symbolic="YES" id="t1p-hg-JJv"/>
+                            <constraint firstAttribute="bottom" secondItem="fmV-sg-yNp" secondAttribute="bottom" constant="20" symbolic="YES" id="vbI-Eb-9qt"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -177,6 +210,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="more.png" width="32" height="32"/>
+        <image name="more_unfold2.png" width="64" height="64"/>
     </resources>
 </document>

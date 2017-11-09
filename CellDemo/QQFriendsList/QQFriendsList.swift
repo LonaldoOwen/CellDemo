@@ -89,15 +89,12 @@ class QQFriendsList: UITableViewController {
         /// 自定义section header view
         /// 使用的是UIView，在view上自定义content
         let headerView = SectionHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
-        headerView.backgroundColor = UIColor.orange
+        //headerView.backgroundColor = UIColor.orange
         
         // 设置数据
         let item = self.lists[section]
         headerView.title.text = item.relations
-        let image = UIImage.init(named: item.imageString)
-        let image2 = UIImage(named: "more@2x.png")
-        let image3 = UIImage(named: "more2.png")
-        headerView.imageView.image = image
+        headerView.imageView.image = UIImage.init(named: item.imageString)
         headerView.tag = 100 + section
         
         // 处理tap action
@@ -106,17 +103,20 @@ class QQFriendsList: UITableViewController {
             /// 注意：
             /// 1、这里FriendsList要使用Class类型（reference type），这样更改item的store property时，lists就更新了
             /// 如果使用struct，不会自动更新（value type）
+            /// 问题：背景为白色时，切换图片时，会有重叠效果
+            /// 原因：
+            /// 解决：
             let item: FriendsList = self.lists[section]
             // togging isExpanded property and imageSring
-            item.isExpanded = !item.isExpanded
             if item.isExpanded {
                 item.imageString = "more.png"
             } else {
                 item.imageString = "more_unfold.png"
             }
+            item.isExpanded = !item.isExpanded
             // update table view section
-            //tableView.reloadSections(IndexSet.init(integer: section), with: .none)
-            tableView.reloadData()
+            tableView.reloadSections(IndexSet.init(integer: section), with: .none)
+            //tableView.reloadData()
             print("isExpanded: \(item.isExpanded)")
         }
         return headerView

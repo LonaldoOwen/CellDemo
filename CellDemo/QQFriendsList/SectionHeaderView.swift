@@ -20,7 +20,7 @@ class SectionHeaderView: UIView {
     
     let title: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.lightGray
+        //label.backgroundColor = UIColor.lightGray
         label.numberOfLines = 1
         return label
     }()
@@ -44,7 +44,7 @@ class SectionHeaderView: UIView {
         /// 约束有点问题，没居中？？
         /// 如何使用VFl设置label在view上居中？？？
         let views = ["superview": self, "title": title, "image": imageView]
-        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[image]-10-[title]-(>=10)-|", options: [], metrics: nil, views: views)
+        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[image]-10-[title]-(>=10)-|", options: [], metrics: nil, views: views)
         self.addConstraints(VFL_H)
         title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
