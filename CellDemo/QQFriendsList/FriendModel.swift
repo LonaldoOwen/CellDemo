@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FriendsList {
     
@@ -18,11 +19,13 @@ class FriendsList {
     
     var isExpanded: Bool
     var relations: String
+    var imageString: String
     var friends: [Friend]?
     
-    init(isExpanded: Bool, relations: String, friends: [Friend]?) {
+    init(isExpanded: Bool, relations: String, imageString: String, friends: [Friend]?) {
         self.isExpanded = isExpanded
         self.relations = relations
+        self.imageString = imageString
         self.friends = friends
     }
 }

@@ -25,23 +25,33 @@ class SectionHeaderView: UIView {
         return label
     }()
     
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
     // define a closure handle tap
     var headerTapedHandler: (() -> Void)!
     
     func setUpUI() {
         // add a title
         self.addSubview(title)
+        self.addSubview(imageView)
         
         // add constraints
         title.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         /// 约束有点问题，没居中？？
         /// 如何使用VFl设置label在view上居中？？？
-        let views = ["title": title, "superview": self]
-        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-50-[title]-(>=10)-|", options: [], metrics: nil, views: views)
+        let views = ["superview": self, "title": title, "image": imageView]
+        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[image]-10-[title]-(>=10)-|", options: [], metrics: nil, views: views)
         self.addConstraints(VFL_H)
         title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
 //        let VFL_V = NSLayoutConstraint.constraints(withVisualFormat: "V:[superview][title(==21)]", options: .alignAllCenterY, metrics: nil, views: views)
 //        self.addConstraints(VFL_V)
+        
         /// 可行
 //        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50).isActive = true
 //        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: 10).isActive = true

@@ -7,6 +7,8 @@
 		<false/>
 		<key>relations</key>
 		<string>同学</string>
+        <key>imageString</key>
+        <string>more.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
@@ -34,6 +36,8 @@
 		<true/>
 		<key>relations</key>
 		<string>同事</string>
+        <key>imageString</key>
+        <string>more_unfold.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
@@ -61,6 +65,8 @@
 		<false/>
 		<key>relations</key>
 		<string>康辉旅游</string>
+        <key>imageString</key>
+        <string>more.png</string>
 		<key>friends</key>
 		<array>
 			<dict>

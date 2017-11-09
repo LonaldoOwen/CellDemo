@@ -32,7 +32,7 @@
         <scene sceneID="3Dv-Ai-7nW">
             <objects>
                 <tableViewController storyboardIdentifier="QQFriendListVC" id="pWJ-xE-FpN" customClass="QQFriendsList" customModule="CellDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="or9-tA-9L4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" id="or9-tA-9L4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -156,6 +156,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="more.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-sg-yNp">
+                                <rect key="frame" x="149" y="463" width="77" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -169,7 +173,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhl-XL-b8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="39"/>
+            <point key="canvasLocation" x="-77.599999999999994" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="more.png" width="32" height="32"/>
+    </resources>
 </document>

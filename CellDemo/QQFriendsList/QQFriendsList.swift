@@ -6,8 +6,9 @@
 //  Copyright © 2017年 libowen. All rights reserved.
 //
 /**
- 功能：模仿qq好友列表cell展开收起功能
- 
+ *功能：模仿qq好友列表cell展开收起功能
+ *注意：VC使用的storyboard（UITableViewController），section header和footer有默认高度值18；
+ *如果不需要footer可将值设置为0；
  */
 
 import UIKit
@@ -37,6 +38,7 @@ class QQFriendsList: UITableViewController {
             FriendsList(
                 isExpanded: $0["isExpanded"] as! Bool,
                 relations: $0["relations"] as! String,
+                imageString: $0["imageString"] as! String,
                 friends: ($0["friends"] as! [[String: Any]]).map {
                     FriendsList.Friend(
                         id: $0["id"] as! String,
@@ -83,11 +85,21 @@ class QQFriendsList: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // 自定义section header view
+        
+        /// 自定义section header view
+        /// 使用的是UIView，在view上自定义content
         let headerView = SectionHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
-        headerView.title.text = "Section Header"
         headerView.backgroundColor = UIColor.orange
+        
+        // 设置数据
+        let item = self.lists[section]
+        headerView.title.text = item.relations
+        let image = UIImage.init(named: item.imageString)
+        let image2 = UIImage(named: "more@2x.png")
+        let image3 = UIImage(named: "more2.png")
+        headerView.imageView.image = image
         headerView.tag = 100 + section
+        
         // 处理tap action
         headerView.headerTapedHandler = {
             print("taped section: \(section)")
@@ -95,8 +107,13 @@ class QQFriendsList: UITableViewController {
             /// 1、这里FriendsList要使用Class类型（reference type），这样更改item的store property时，lists就更新了
             /// 如果使用struct，不会自动更新（value type）
             let item: FriendsList = self.lists[section]
-            // togging isExpanded property
+            // togging isExpanded property and imageSring
             item.isExpanded = !item.isExpanded
+            if item.isExpanded {
+                item.imageString = "more.png"
+            } else {
+                item.imageString = "more_unfold.png"
+            }
             // update table view section
             //tableView.reloadSections(IndexSet.init(integer: section), with: .none)
             tableView.reloadData()
