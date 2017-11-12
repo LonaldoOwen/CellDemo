@@ -30,9 +30,17 @@ class SectionHeaderView: UIView {
         return imageView
     }()
     
+    let seperator: UIView = {
+        let seperator = UIView()
+        seperator.backgroundColor = UIColor.gray
+        return seperator
+    }()
+    
     // define a closure handle tap
     var headerTapedHandler: (() -> Void)!
     
+    
+    // 自定义UI
     func setUpUI() {
         // add a title
         self.addSubview(title)
@@ -57,14 +65,24 @@ class SectionHeaderView: UIView {
 //        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: 10).isActive = true
 //        title.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
+        // add seperator view
+        self.addSubview(seperator)
+        seperator.translatesAutoresizingMaskIntoConstraints = false
+        seperator.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        seperator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        seperator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        seperator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        
         // add gesture recognizer
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapAction))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(responseToTapGestureRecognizer))
         self.addGestureRecognizer(tapRecognizer)
     }
     
-    func handleTapAction() {
+    func responseToTapGestureRecognizer(recognizer: UIGestureRecognizer) {
         // 调用closure
         headerTapedHandler()
+        
+        // 可以通过recognizer的view属性获得是点击的哪个view
     }
     
     override init(frame: CGRect) {

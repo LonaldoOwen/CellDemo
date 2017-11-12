@@ -15,7 +15,10 @@ import UIKit
 
 class QQFriendsList: UITableViewController {
     
-    //
+    // section header view identifier
+    let kSectionHeaderIdentifier = "SectionHeader"
+    
+    // 定义数组存储model数据
     var lists: [FriendsList]!
 
     
@@ -48,6 +51,12 @@ class QQFriendsList: UITableViewController {
             )
         }
         print("")
+        
+        // 注册UITableViewHeaderFooterView
+        // 使用Xib的时候使用
+        //tableView.register(UINib.init(nibName: "CustomHeaderFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: kSectionHeaderIdentifier)
+        // 
+        tableView.register(CustomHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: kSectionHeaderIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,53 +89,51 @@ class QQFriendsList: UITableViewController {
         // Configure the cell...
         let frend = self.lists[indexPath.section].friends?[indexPath.row]
         cell.textLabel?.text = frend?.name
+        cell.imageView?.image = UIImage(named: "国内游@2x")
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        /// 自定义section header view
-        /// 使用的是UIView，在view上自定义content
-        let headerView = SectionHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
-        //headerView.backgroundColor = UIColor.orange
+        /// 自定义section header view, using UIView
+        //return sectionHeaderUsingUIView(inSection: section)
         
+        /// 自定义section header view， using UITableViewHeaderFooterView
+        let sectionHeader: CustomHeaderFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: kSectionHeaderIdentifier)! as! CustomHeaderFooterView
         // 设置数据
         let item = self.lists[section]
-        headerView.title.text = item.relations
-        headerView.imageView.image = UIImage.init(named: item.imageString)
-        headerView.tag = 100 + section
+        sectionHeader.title.text = item.relations
+        sectionHeader.indicatorImage.image = UIImage(named: item.imageString)
         
-        // 处理tap action
-        headerView.headerTapedHandler = {
-            print("taped section: \(section)")
-            /// 注意：
-            /// 1、这里FriendsList要使用Class类型（reference type），这样更改item的store property时，lists就更新了
-            /// 如果使用struct，不会自动更新（value type）
-            /// 问题：背景为白色时，切换图片时，会有重叠效果
-            /// 原因：
-            /// 解决：
-            let item: FriendsList = self.lists[section]
-            // togging isExpanded property and imageSring
-            if item.isExpanded {
-                item.imageString = "more.png"
-            } else {
-                item.imageString = "more_unfold.png"
-            }
+        // 旋转图像
+        /// 改变indicator image的实现方法二：旋转iamgeView
+        /// 在此处未达到效果？？？
+        UIView.animate(withDuration: 0.4, animations: {
+            // 旋转图像（默认需要都设置为isExpanded==false）
+            // 如果isExpanded==true，则顺时针旋转90度
+            // 如果isExpanded==false，则取消旋转，恢复原样
+            sectionHeader.indicatorImage.transform = item.isExpanded ? CGAffineTransform.init(rotationAngle: CGFloat(M_PI_2)): CGAffineTransform.identity
+        })
+        
+        // 实现handle tap closure
+        sectionHeader.headerTapedHandler = {
+            print("Section header: \(section) taped!")
+            // togging isExpanded property
             item.isExpanded = !item.isExpanded
             // update table view section
-            tableView.reloadSections(IndexSet.init(integer: section), with: .none)
-            //tableView.reloadData()
-            print("isExpanded: \(item.isExpanded)")
+            self.tableView.reloadSections(IndexSet.init(integer: section), with: .none)
         }
-        return headerView
+ 
+        return sectionHeader
+        
     }
     
     
     // MARK: - table view delegate
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return 60
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -145,5 +152,64 @@ class QQFriendsList: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: - Helper 
+    
+    /// 
+    // 自定义section header view, using UIView
+    func sectionHeaderUsingUIView(inSection section: Int) -> UIView {
+        
+        /// 使用的是UIView，在view上自定义content
+        /// 注意section header的复用问题
+        /// 应该使用dequeueReusableHeaderFooterView(withIdentifier:)
+        let headerView = SectionHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
+        //headerView.backgroundColor = UIColor.orange
+        headerView.backgroundColor = UIColor.white
+        
+        // 设置数据
+        let item = self.lists[section]
+        headerView.title.text = item.relations
+        headerView.imageView.image = UIImage.init(named: item.imageString)
+        headerView.tag = 100 + section
+        if item.isExpanded {
+            headerView.seperator.backgroundColor = nil
+        } else {
+            headerView.seperator.backgroundColor = UIColor.gray
+        }
+        
+        // 处理tap action closure
+        headerView.headerTapedHandler = {
+            print("taped section: \(section)")
+            let item: FriendsList = self.lists[section]
+            /// 改变图片的实现方法一：切换图片
+            /// 注意：
+            /// 1、这里FriendsList要使用Class类型（reference type），这样更改item的store property时，lists就更新了
+            /// 如果使用struct，不会自动更新（value type）
+            /// 问题：背景为白色时，切换图片时，会有重叠效果
+            /// 原因：
+            /// 解决：
+            // togging imageSring property
+            if item.isExpanded {
+                item.imageString = "more.png"
+            } else {
+                item.imageString = "more_unfold.png"
+            }
+            /// 改变图片的实现方法二：旋转iamgeView
+            /// 在此处未达到效果？？？（位置不对，需要移出closure）
+//            UIView.animate(withDuration: 0.4, animations: {
+//                // 旋转图像
+//                headerView.imageView.transform = !item.isExpanded ? CGAffineTransform.init(rotationAngle: CGFloat(M_PI_2)): CGAffineTransform.identity
+//            })
+            
+            // togging isExpanded property
+            item.isExpanded = !item.isExpanded
+            // update table view section
+            self.tableView.reloadSections(IndexSet.init(integer: section), with: .none)
+            //tableView.reloadData()
+            print("isExpanded: \(item.isExpanded)")
+        }
+        return headerView
+    }
 
 }
