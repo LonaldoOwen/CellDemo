@@ -9,7 +9,8 @@
 /// 包含contentView、textLabel、detaiTextLabel(only grouped supported)属性；
 /// 如果这些属性满足需要，可以不用创建子类和自定义元素；
 /// 如果需要自定义元素，创建子类，并可以通过给contentView添加subviews来实现
-///
+/// add coverView用作点击时选择效果
+/// add seperator view
 /**
  *功能：自定义UITableViewHeaderFooterView
  *1、
@@ -43,6 +44,21 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         return imageView
     }()
     
+    // define a mask view
+    var coverView: UIView = {
+        var cover = UIView()
+        cover.backgroundColor = UIColor.lightGray
+        cover.alpha = 0.5
+        return cover
+    }()
+    
+    // define a seperator view
+    let seperator: UIView = {
+        let seperator = UIView()
+        seperator.backgroundColor = UIColor.gray
+        return seperator
+    }()
+    
     // define a closure to handle header taped
     var headerTapedHandler: (() -> Void)!
     
@@ -68,13 +84,26 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         /// VFL_H中的options: .alignAllCenterY意思等价于下面约束
         //indicatorImage.centerYAnchor.constraint(equalTo: title.centerYAnchor).isActive = true
         
-        //
-//        indicatorImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16).isActive = true
-//        title.leadingAnchor.constraint(equalTo: indicatorImage.trailingAnchor, constant: 10).isActive = true
-//        title.trailingAnchor.constraint(lessThanOrEqualTo: self.contentView.trailingAnchor, constant: 10).isActive = true
-//        indicatorImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-//        title.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        // setup cover view
+        /// 使用frame时，不显示？？？
+        ///
+        //coverView.frame = self.frame
+        //coverView.frame = CGRect(x: 0.0, y: 0.0, width: self.bounds.size.width, height: self.bounds.size.height)
+//        self.contentView.addSubview(coverView)
+//        coverView.translatesAutoresizingMaskIntoConstraints = false
+//        coverView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+//        coverView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+//        coverView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+//        coverView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+//        coverView.isHidden = true
         
+        // add seperator view
+        self.addSubview(seperator)
+        seperator.translatesAutoresizingMaskIntoConstraints = false
+        seperator.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        seperator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        seperator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        seperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
         // add a tap gesture recognizer
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(responseToTapGestureRecognizier))
@@ -102,6 +131,7 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
     func responseToTapGestureRecognizier(recognizier: UIGestureRecognizer) {
         // 调用closure
         headerTapedHandler()
+        print("coverView.frame: \(coverView.frame)")
     }
     
 

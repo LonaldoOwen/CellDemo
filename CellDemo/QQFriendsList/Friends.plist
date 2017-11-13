@@ -7,8 +7,8 @@
 		<false/>
 		<key>relations</key>
 		<string>同学</string>
-        <key>imageString</key>
-        <string>more.png</string>
+		<key>imageString</key>
+		<string>more.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
@@ -33,11 +33,11 @@
 	</dict>
 	<dict>
 		<key>isExpanded</key>
-		<true/>
+		<false/>
 		<key>relations</key>
 		<string>同事</string>
-        <key>imageString</key>
-        <string>more_unfold.png</string>
+		<key>imageString</key>
+		<string>more_unfold.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
@@ -58,30 +58,30 @@
 				<key>name</key>
 				<string>王五</string>
 			</dict>
-            <dict>
-                <key>id</key>
-                <string>3</string>
-                <key>name</key>
-                <string>赵六</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>4</string>
-                <key>name</key>
-                <string>疯八</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>5</string>
-                <key>name</key>
-                <string>草志京</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>6</string>
-                <key>name</key>
-                <string>二阶堂</string>
-            </dict>
+			<dict>
+				<key>id</key>
+				<string>3</string>
+				<key>name</key>
+				<string>赵六</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>4</string>
+				<key>name</key>
+				<string>疯八</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>5</string>
+				<key>name</key>
+				<string>草志京</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>6</string>
+				<key>name</key>
+				<string>二阶堂</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -89,8 +89,8 @@
 		<false/>
 		<key>relations</key>
 		<string>康辉旅游</string>
-        <key>imageString</key>
-        <string>more.png</string>
+		<key>imageString</key>
+		<string>more.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
@@ -111,54 +111,54 @@
 				<key>name</key>
 				<string>王五</string>
 			</dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
-            <dict>
-                <key>id</key>
-                <string>2</string>
-                <key>name</key>
-                <string>王五</string>
-            </dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>name</key>
+				<string>王五</string>
+			</dict>
 		</array>
 	</dict>
 </array>

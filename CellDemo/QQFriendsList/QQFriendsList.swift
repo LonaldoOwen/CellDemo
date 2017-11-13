@@ -89,7 +89,11 @@ class QQFriendsList: UITableViewController {
         // Configure the cell...
         let frend = self.lists[indexPath.section].friends?[indexPath.row]
         cell.textLabel?.text = frend?.name
-        cell.imageView?.image = UIImage(named: "国内游@2x")
+        if indexPath.section == 0 {
+            cell.imageView?.image = nil
+        } else {
+            cell.imageView?.image = UIImage(named: "国内游@2x")
+        }
 
         return cell
     }
@@ -101,6 +105,7 @@ class QQFriendsList: UITableViewController {
         
         /// 自定义section header view， using UITableViewHeaderFooterView
         let sectionHeader: CustomHeaderFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: kSectionHeaderIdentifier)! as! CustomHeaderFooterView
+        sectionHeader.contentView.backgroundColor = UIColor.white
         // 设置数据
         let item = self.lists[section]
         sectionHeader.title.text = item.relations
@@ -116,11 +121,23 @@ class QQFriendsList: UITableViewController {
             sectionHeader.indicatorImage.transform = item.isExpanded ? CGAffineTransform.init(rotationAngle: CGFloat(M_PI_2)): CGAffineTransform.identity
         })
         
+        // show or hidden seperator view（步骤一）
+        ///  seperator处理分两步：1、根据isExpanded是否显示，2、如果收起时，点击隐藏
+        sectionHeader.seperator.isHidden = item.isExpanded
+        
         // 实现handle tap closure
         sectionHeader.headerTapedHandler = {
             print("Section header: \(section) taped!")
+            // 当section header收起时，点击后隐藏seperator（步骤二）
+            if !item.isExpanded {
+                sectionHeader.seperator.isHidden = true
+            }
             // togging isExpanded property
             item.isExpanded = !item.isExpanded
+            
+            // show or hidden the cover view
+            sectionHeader.coverView.isHidden = sectionHeader.coverView.isHidden ? false : true
+            
             // update table view section
             self.tableView.reloadSections(IndexSet.init(integer: section), with: .none)
         }
@@ -172,6 +189,8 @@ class QQFriendsList: UITableViewController {
         headerView.title.text = item.relations
         headerView.imageView.image = UIImage.init(named: item.imageString)
         headerView.tag = 100 + section
+        
+        // 隐藏或显示seperator view
         if item.isExpanded {
             headerView.seperator.backgroundColor = nil
         } else {
