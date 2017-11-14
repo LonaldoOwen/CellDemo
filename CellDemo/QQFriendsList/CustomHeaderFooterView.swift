@@ -9,8 +9,9 @@
 /// 包含contentView、textLabel、detaiTextLabel(only grouped supported)属性；
 /// 如果这些属性满足需要，可以不用创建子类和自定义元素；
 /// 如果需要自定义元素，创建子类，并可以通过给contentView添加subviews来实现
-/// add coverView用作点击时选择效果
+/// add coverView用作点击时选择效果(效果一般，长按没有效果)
 /// add seperator view
+/// add UIButton作为subview（效果不好，？？？）
 /**
  *功能：自定义UITableViewHeaderFooterView
  *1、
@@ -44,12 +45,19 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         return imageView
     }()
     
-    // define a mask view
+    // 2.1 define a mask view
     var coverView: UIView = {
         var cover = UIView()
         cover.backgroundColor = UIColor.lightGray
         cover.alpha = 0.5
         return cover
+    }()
+
+    // 3.1 define a UIButton
+    var button: UIButton = {
+        var button = UIButton(type: UIButtonType.system)
+        button.setTitleColor(UIColor.black, for: .normal)
+        return button
     }()
     
     // define a seperator view
@@ -62,7 +70,9 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
     // define a closure to handle header taped
     var headerTapedHandler: (() -> Void)!
     
-    /// setup UI
+    
+    // setup UI
+    // 自定义title、indicatorView
     func setupUI() {
         
         // 
@@ -84,7 +94,7 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         /// VFL_H中的options: .alignAllCenterY意思等价于下面约束
         //indicatorImage.centerYAnchor.constraint(equalTo: title.centerYAnchor).isActive = true
         
-        // setup cover view
+        // 2.2 setup cover view
         /// 使用frame时，不显示？？？
         ///
         //coverView.frame = self.frame
@@ -110,23 +120,42 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         self.addGestureRecognizer(tapRecognizer)
     }
     
+    //
+    // 3.2 添加UIButton作为subview
+    func setupUIWithButton() {
+        self.contentView.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        let views = ["super": self.contentView, "button": button]
+        let VFL_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[button]-0-|", options: [], metrics: nil, views: views)
+        self.addConstraints(VFL_H)
+        let VFL_V = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[button]-0-|", options: [], metrics: nil, views: views)
+        self.addConstraints(VFL_V)
+        
+        // add action
+        button.addTarget(self, action: #selector(handleButtonClickAction), for: .touchUpInside)
+    }
+    
     /// custom initializer
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         //
         setupUI()
+        // 
+        //setupUIWithButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /*
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         //
-        setupUI()
+        //setupUI()
     }
-    */
+ 
+    
     
     func responseToTapGestureRecognizier(recognizier: UIGestureRecognizer) {
         // 调用closure
@@ -134,5 +163,12 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         print("coverView.frame: \(coverView.frame)")
     }
     
+    // 3.3
+    func handleButtonClickAction(sendor: UIButton) {
+        headerTapedHandler()
+        //button.isSelected = !button.isSelected
+        print("button select state: \(button.isSelected)")
+        //button.backgroundColor = UIColor.lightGray
+    }
 
 }

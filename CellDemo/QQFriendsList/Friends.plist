@@ -33,7 +33,7 @@
 	</dict>
 	<dict>
 		<key>isExpanded</key>
-		<false/>
+		<true/>
 		<key>relations</key>
 		<string>同事</string>
 		<key>imageString</key>

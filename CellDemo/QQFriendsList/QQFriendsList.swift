@@ -100,16 +100,20 @@ class QQFriendsList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        /// 自定义section header view, using UIView
+        /// 方法一：自定义section header view, using UIView
         //return sectionHeaderUsingUIView(inSection: section)
         
-        /// 自定义section header view， using UITableViewHeaderFooterView
+        /// 方法二：自定义section header view， using UITableViewHeaderFooterView
         let sectionHeader: CustomHeaderFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: kSectionHeaderIdentifier)! as! CustomHeaderFooterView
         sectionHeader.contentView.backgroundColor = UIColor.white
+        
+        
         // 设置数据
         let item = self.lists[section]
         sectionHeader.title.text = item.relations
         sectionHeader.indicatorImage.image = UIImage(named: item.imageString)
+        //sectionHeader.button.setTitle(item.relations, for: .normal)
+        
         
         // 旋转图像
         /// 改变indicator image的实现方法二：旋转iamgeView
@@ -136,12 +140,13 @@ class QQFriendsList: UITableViewController {
             item.isExpanded = !item.isExpanded
             
             // show or hidden the cover view
-            sectionHeader.coverView.isHidden = sectionHeader.coverView.isHidden ? false : true
+            //sectionHeader.coverView.isHidden = sectionHeader.coverView.isHidden ? false : true
+            //sectionHeader.contentView.backgroundColor = UIColor.lightGray
             
             // update table view section
             self.tableView.reloadSections(IndexSet.init(integer: section), with: .none)
         }
- 
+        
         return sectionHeader
         
     }
@@ -156,7 +161,6 @@ class QQFriendsList: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 点击cell后，取消cell的选中状态
         tableView.deselectRow(at: indexPath, animated: false)
-        //
     }
     
 

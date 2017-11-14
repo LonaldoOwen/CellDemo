@@ -39,6 +39,9 @@
 		5AE072581F27A0410023BE63 /* CustomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE072571F27A0410023BE63 /* CustomItemView.swift */; };
 		5AE0725A1F27A0A20023BE63 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE072591F27A0A20023BE63 /* TempViewController.swift */; };
 		5AE0725C1F27A0C20023BE63 /* CustomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */; };
+		5AEB6FF91FBB46700050431B /* FindFriendHelpListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */; };
+		5AEB6FFB1FBB472A0050431B /* CustomHeaderOfFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */; };
+		5AEB6FFF1FBB49DE0050431B /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,9 @@
 		5AE072571F27A0410023BE63 /* CustomItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomItemView.swift; path = ../../CustomItemView.swift; sourceTree = "<group>"; };
 		5AE072591F27A0A20023BE63 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemView.xib; sourceTree = "<group>"; };
+		5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendHelpListVC.swift; sourceTree = "<group>"; };
+		5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderOfFind.swift; sourceTree = "<group>"; };
+		5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,7 @@
 				2344D7FB1F20B0E300DA8DED /* Custom_Xib */,
 				5AE072561F27A01D0023BE63 /* CustomView */,
 				5AC55FBE1FB1F3C100E4C10A /* QQFriendsList */,
+				5AEB6FF71FBB46700050431B /* FindFriendHelpList */,
 				2344D7EE1F20AFC800DA8DED /* Resource */,
 				2344D7BC1F206CE500DA8DED /* Main.storyboard */,
 				2344D7BF1F206CE500DA8DED /* Assets.xcassets */,
@@ -254,6 +261,16 @@
 				5AE0725B1F27A0C20023BE63 /* CustomItemView.xib */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		5AEB6FF71FBB46700050431B /* FindFriendHelpList */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */,
+				5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */,
+				5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */,
+			);
+			path = FindFriendHelpList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +396,7 @@
 				2344D8071F20B35200DA8DED /* CustomCellWithXib.xib in Resources */,
 				5A2A4C891FB1FC8E008575DC /* Friends.plist in Resources */,
 				235E38BE1FB41F8A00FDAB36 /* more.png in Resources */,
+				5AEB6FFF1FBB49DE0050431B /* SectionHeaderView.xib in Resources */,
 				2344D7E91F2072CF00DA8DED /* List.plist in Resources */,
 				2344D7F71F20AFC800DA8DED /* fcyHLwlg_normal.jpg in Resources */,
 				2344D7BE1F206CE500DA8DED /* Main.storyboard in Resources */,
@@ -410,6 +428,7 @@
 				5AC55FC21FB1F7BF00E4C10A /* FriendModel.swift in Sources */,
 				2344D7E71F206D4700DA8DED /* ListCell.swift in Sources */,
 				5AC55FC01FB1F3C100E4C10A /* QQFriendsList.swift in Sources */,
+				5AEB6FFB1FBB472A0050431B /* CustomHeaderOfFind.swift in Sources */,
 				5A8689451FB4971600AC74EF /* CustomHeaderFooterView.swift in Sources */,
 				2344D7BB1F206CE500DA8DED /* ViewController.swift in Sources */,
 				2344D7ED1F2075B400DA8DED /* Helper.swift in Sources */,
@@ -419,6 +438,7 @@
 				5AE0725A1F27A0A20023BE63 /* TempViewController.swift in Sources */,
 				2344D7B91F206CE500DA8DED /* AppDelegate.swift in Sources */,
 				2344D7EB1F20742B00DA8DED /* ListCellModel.swift in Sources */,
+				5AEB6FF91FBB46700050431B /* FindFriendHelpListVC.swift in Sources */,
 				2344D7FD1F20B15100DA8DED /* ShowXibCellViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
