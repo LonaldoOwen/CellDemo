@@ -64,13 +64,19 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
         
         if recognizier.state == .began {
             print("begin")
+            /// 问题：
+            /// 这样直接设置没有动画效果，可以添加fade动画
+            // 设置hilighted颜色
+            self.subviews[1].backgroundColor = UIColor.lightGray
+        } else if recognizier.state == .ended {
+            print("ended")
+            // 取消hilighted颜色
+            self.subviews[1].backgroundColor = UIColor.white
             if (self.delegate?.responds(to: #selector(SectionHeaderViewDelegate.sectionHeaderView(_:sectionOpened:))))! {
                 self.delegate?.sectionHeaderView!(self, sectionOpened: self.section!)
             } else {
                 print("not respond delegate")
             }
-        } else if recognizier.state == .ended {
-            print("ended")
         }
     }
     

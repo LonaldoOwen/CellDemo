@@ -129,6 +129,10 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         //sectionHeader.contentView.backgroundColor = UIColor.orange
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
     // MARK: SectionHeaderViewDelegate
     func sectionHeaderView(_ sectionHeaderView: CustomHeaderOfFind, sectionOpened: Int) {
@@ -136,7 +140,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         
         let item = self.lists[sectionOpened]
         item.isExpanded = !item.isExpanded
-        sectionHeaderView.subviews[1].backgroundColor = UIColor.gray
+        //sectionHeaderView.subviews[1].backgroundColor = UIColor.gray
         self.tableView.reloadSections(IndexSet.init(integer: sectionOpened), with: .none)
     }
     
