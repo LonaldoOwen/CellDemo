@@ -5,6 +5,12 @@
 //  Created by owen on 17/11/7.
 //  Copyright © 2017年 libowen. All rights reserved.
 //
+/**
+ * 功能：自定义UIView
+ * 1、继承UIView，自定义UI
+ * 2、使用closure来处理section header点击后的逻辑
+ * 3、添加tap gesture
+ */
 
 import UIKit
 

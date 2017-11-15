@@ -13,23 +13,16 @@
 /// add seperator view
 /// add UIButton作为subview（效果不好，？？？）
 /**
- *功能：自定义UITableViewHeaderFooterView
- *1、
- *2、
+ * 功能：自定义UITableViewHeaderFooterView
+ * 1、继承UITableViewHeaderFooterView，自定义UI
+ * 2、使用closure来处理section header点击后的逻辑
+ * 3、添加tap gesture
  */
 
 import UIKit
 
 class CustomHeaderFooterView: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
     /// customs properties
     
     // define a title 
@@ -170,5 +163,17 @@ class CustomHeaderFooterView: UITableViewHeaderFooterView {
         print("button select state: \(button.isSelected)")
         //button.backgroundColor = UIColor.lightGray
     }
+    
+    
+    
+    
+    /*
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+
 
 }

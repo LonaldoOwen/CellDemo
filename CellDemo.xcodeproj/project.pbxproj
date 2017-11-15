@@ -42,6 +42,9 @@
 		5AEB6FF91FBB46700050431B /* FindFriendHelpListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */; };
 		5AEB6FFB1FBB472A0050431B /* CustomHeaderOfFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */; };
 		5AEB6FFF1FBB49DE0050431B /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */; };
+		5AEB70011FBC92350050431B /* Help.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB70001FBC92350050431B /* Help.plist */; };
+		5AEB70041FBC92920050431B /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB70021FBC92920050431B /* carat-open.png */; };
+		5AEB70051FBC92920050431B /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEB70031FBC92920050431B /* carat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendHelpListVC.swift; sourceTree = "<group>"; };
 		5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderOfFind.swift; sourceTree = "<group>"; };
 		5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		5AEB70001FBC92350050431B /* Help.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Help.plist; sourceTree = "<group>"; };
+		5AEB70021FBC92920050431B /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
+		5AEB70031FBC92920050431B /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,8 @@
 				235E38B81FB40B9E00FDAB36 /* more_unfold.png */,
 				235E38BC1FB41EEC00FDAB36 /* more2.png */,
 				235E38BF1FB4201400FDAB36 /* more_unfold2.png */,
+				5AEB70021FBC92920050431B /* carat-open.png */,
+				5AEB70031FBC92920050431B /* carat.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -269,6 +277,7 @@
 				5AEB6FF81FBB46700050431B /* FindFriendHelpListVC.swift */,
 				5AEB6FFA1FBB472A0050431B /* CustomHeaderOfFind.swift */,
 				5AEB6FFE1FBB49DE0050431B /* SectionHeaderView.xib */,
+				5AEB70001FBC92350050431B /* Help.plist */,
 			);
 			path = FindFriendHelpList;
 			sourceTree = "<group>";
@@ -386,10 +395,12 @@
 				5AE0725C1F27A0C20023BE63 /* CustomItemView.xib in Resources */,
 				2344D7C31F206CE500DA8DED /* LaunchScreen.storyboard in Resources */,
 				2344D7FA1F20AFC800DA8DED /* 酒店@2x.png in Resources */,
+				5AEB70041FBC92920050431B /* carat-open.png in Resources */,
 				235E38BD1FB41F5B00FDAB36 /* more2.png in Resources */,
 				2344D7F91F20AFC800DA8DED /* 国内游@2x.png in Resources */,
 				2344D7F51F20AFC800DA8DED /* fcyHLwlg_400x400.jpg in Resources */,
 				235E38C11FB423AF00FDAB36 /* more_unfold.png in Resources */,
+				5AEB70011FBC92350050431B /* Help.plist in Resources */,
 				2344D7C01F206CE500DA8DED /* Assets.xcassets in Resources */,
 				2344D7F61F20AFC800DA8DED /* fcyHLwlg_bigger.jpg in Resources */,
 				2344D7F81F20AFC800DA8DED /* 出境游@2x.png in Resources */,
@@ -400,6 +411,7 @@
 				2344D7E91F2072CF00DA8DED /* List.plist in Resources */,
 				2344D7F71F20AFC800DA8DED /* fcyHLwlg_normal.jpg in Resources */,
 				2344D7BE1F206CE500DA8DED /* Main.storyboard in Resources */,
+				5AEB70051FBC92920050431B /* carat.png in Resources */,
 				235E38C01FB421F900FDAB36 /* more_unfold2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

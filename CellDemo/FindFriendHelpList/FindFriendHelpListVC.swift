@@ -5,10 +5,11 @@
 //  Created by owen on 17/11/14.
 //  Copyright © 2017年 libowen. All rights reserved.
 //
-///
-///
-///
-///
+/// 功能：模仿查找朋友－我－帮助页面
+/// 1、TVC未使用storyboard，通过代码实例化显示
+/// 2、section 和cell的数据都使用model
+/// 3、应用代理模式
+/// 4、
 
 import UIKit
 
@@ -34,6 +35,12 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         self.title = "FindFriendHelpVC"
         tableView.sectionHeaderHeight = 60
         
+        // 设置tableFooterView（不想看到table中的空cell）
+//        let tableFooter = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
+//        tableFooter.backgroundColor = UIColor.lightGray
+//        tableView.tableFooterView = tableFooter
+        tableView.tableFooterView = UIView()
+        
         // 注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kFriendsCellIdentifier)
         // 注册section header nib
@@ -41,7 +48,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         tableView.register(sectionHeaderNib, forHeaderFooterViewReuseIdentifier: kSectionHeaderIdentifier)
         
         // 解析数据，转化成model
-        let dataArray: [[String: Any]] = Helper.readPlist(forResource: "Friends", ofType: "plist") as! [[String : Any]]
+        let dataArray: [[String: Any]] = Helper.readPlist(forResource: "Help", ofType: "plist") as! [[String : Any]]
         lists = dataArray.map {
             FriendsList(
                 isExpanded: $0["isExpanded"] as! Bool,
@@ -135,12 +142,22 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
     
     
     // MARK: SectionHeaderViewDelegate
+    
     func sectionHeaderView(_ sectionHeaderView: CustomHeaderOfFind, sectionOpened: Int) {
         print("opened section: \(sectionOpened)")
         
         let item = self.lists[sectionOpened]
+        
+        // 切换indicator image
+        /// 注意：这种实现方式列表动作先于图片动作
+        if item.isExpanded {
+            item.imageString = "carat.png"
+        } else {
+            item.imageString = "carat-open.png"
+        }
+        // 转换展开收起状态
         item.isExpanded = !item.isExpanded
-        //sectionHeaderView.subviews[1].backgroundColor = UIColor.gray
+        // 更新section
         self.tableView.reloadSections(IndexSet.init(integer: sectionOpened), with: .none)
     }
     
@@ -150,6 +167,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
     
     
     // MARK: Helper
+    
     func handleLongPress(recognizier: UIGestureRecognizer) {
         let sectionHeader: CustomHeaderOfFind = recognizier.view as! CustomHeaderOfFind
         sectionHeader.contentView.backgroundColor = UIColor.orange
