@@ -16,7 +16,7 @@ import UIKit
 class QQFriendsList: UITableViewController {
     
     // section header view identifier
-    let kSectionHeaderIdentifier = "SectionHeader"
+    let kSectionHeaderIdentifier = "QFLSectionHeader"
     
     // 定义数组存储model数据
     var lists: [FriendsList]!

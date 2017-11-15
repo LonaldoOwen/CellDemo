@@ -38,6 +38,11 @@
         <key>index</key>
         <string>5</string>
     </dict>
-
+    <dict>
+        <key>title</key>
+        <string>UITableViewCell: FindFriendHelpList</string>
+        <key>index</key>
+        <string>6</string>
+    </dict>
 </array>
 </plist>

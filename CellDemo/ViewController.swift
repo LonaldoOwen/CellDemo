@@ -82,6 +82,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else if indexPath.row == 5 {
             let friendsVC: QQFriendsList = self.storyboard?.instantiateViewController(withIdentifier: "QQFriendListVC") as! QQFriendsList
             self.show(friendsVC, sender: nil)
+        } else if indexPath.row == 6 {
+            let findVC: FindFriendHelpListVC = FindFriendHelpListVC(style: .plain)
+            self.navigationController?.show(findVC, sender: nil)
         }
     }
 
