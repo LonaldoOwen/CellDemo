@@ -350,7 +350,7 @@
 				TargetAttributes = {
 					2344D7B41F206CE500DA8DED = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 37FEVCHYTJ;
+						DevelopmentTeam = KM6P947ZT3;
 						ProvisioningStyle = Automatic;
 					};
 					2344D7C81F206CE600DA8DED = {
@@ -603,11 +603,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 37FEVCHYTJ;
+				DEVELOPMENT_TEAM = KM6P947ZT3;
 				INFOPLIST_FILE = CellDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.owen.CellDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirageowen.CellDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -617,11 +617,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 37FEVCHYTJ;
+				DEVELOPMENT_TEAM = KM6P947ZT3;
 				INFOPLIST_FILE = CellDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.owen.CellDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirageowen.CellDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
