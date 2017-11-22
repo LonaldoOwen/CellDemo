@@ -10,6 +10,10 @@
 /// 2、section 和cell的数据都使用model
 /// 3、应用代理模式
 /// 4、
+/// 问题：
+/// 1、table滚动后，indicator图像变为收起状态？？？
+/// 2、section展开，table滚动后，再点击section收起时，crash？？？
+///
 
 import UIKit
 
@@ -127,10 +131,11 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
 //        sectionHeader.addGestureRecognizer(longPressGesture)
         
         let item = self.lists[section]
-        //sectionHeader.disclosureButton.setImage(UIImage.init(named: item.imageString), for: .normal)
+        sectionHeader.disclosureButton.setImage(UIImage.init(named: item.imageString), for: .normal)
         sectionHeader.titleLabel.text = item.relations
         sectionHeader.section = section
-        //sectionHeader.isSelected = item.isExpanded
+        sectionHeader.isSelected = item.isExpanded
+        sectionHeader.isOpened = item.isExpanded
         
         sectionHeader.delegate = self
         
@@ -167,6 +172,8 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         
         // 展开
         item.isExpanded = true
+        sectionHeaderView.isSelected = true
+        sectionHeaderView.isOpened = true
         
         // 更新section
         //self.tableView.reloadSections(IndexSet.init(integer: sectionOpened), with: .none)
@@ -197,6 +204,8 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         
         // 展开
         item.isExpanded = false
+        sectionHeaderView.isSelected = false
+        sectionHeaderView.isOpened = false
     
         // Create an array containing the index paths of the rows to insert:
         var indexPathsToDelete: [IndexPath] = []

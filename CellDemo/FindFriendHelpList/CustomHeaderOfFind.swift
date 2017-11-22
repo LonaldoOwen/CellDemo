@@ -35,6 +35,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
     
     var section: Int?
     var isSelected: Bool!
+    var isOpened: Bool!
     var delegate: SectionHeaderViewDelegate?
     
     
@@ -47,6 +48,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
             print("not respond delegate")
         }
     }
+    
     
     
     override func awakeFromNib() {
@@ -74,13 +76,14 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
     func handleLongPress(recognizier: UIGestureRecognizer) {
         // 切换disclosureButton的选中状态
         //disclosureButton.isSelected = !disclosureButton.isSelected
-        print("disclosureButton.isSelected: \(disclosureButton.isSelected)")
+        print("handleLongPress, disclosureButton.isSelected: \(disclosureButton.isSelected)")
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         
-        if let _: CustomHeaderOfFind = recognizier.view as? CustomHeaderOfFind {
-            //print("long press: \(String(describing: sectionHeader))")
+        if let sectionHeader: CustomHeaderOfFind = recognizier.view as? CustomHeaderOfFind {
+            print("long press, sectionHeader.isSelected: \(sectionHeader.isSelected)")
+            print("long press, sectionHeader.isOpened: \(sectionHeader.isOpened)")
             
             if recognizier.state == .began {
                 print("begin")
@@ -105,6 +108,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
                 print("ended")
                 // 切换disclosureButton的选中状态
                 disclosureButton.isSelected = !disclosureButton.isSelected
+                print(".ended,disclosureButton.isSelected:\(disclosureButton.isSelected)")
                 // 取消hilighted颜色
                 UIView.animate(withDuration: 0.1, delay: 0.2, options: UIViewAnimationOptions.curveEaseOut, animations: {
                     //
@@ -123,8 +127,9 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
                 })
                 
                 //
-                if disclosureButton.isSelected {
+                if !sectionHeader.isOpened {
                     // 调用代理方法：展开section
+                    print("Call sectionOpened")
                     if (self.delegate?.responds(to: #selector(SectionHeaderViewDelegate.sectionHeaderView(_:sectionOpened:))))! {
                         self.delegate?.sectionHeaderView!(self, sectionOpened: self.section!)
                     } else {

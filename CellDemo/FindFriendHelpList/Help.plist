@@ -167,7 +167,7 @@
 		<key>relations</key>
 		<string>设置</string>
 		<key>imageString</key>
-		<string>carat-open.png</string>
+		<string>carat.png</string>
 		<key>friends</key>
 		<array>
 			<dict>
