@@ -163,7 +163,7 @@
 	</dict>
 	<dict>
 		<key>isExpanded</key>
-		<true/>
+		<false/>
 		<key>relations</key>
 		<string>设置</string>
 		<key>imageString</key>
