@@ -6,7 +6,7 @@
 		<key>isExpanded</key>
 		<false/>
 		<key>relations</key>
-		<string>概览</string>
+		<string>0概览</string>
 		<key>imageString</key>
 		<string>carat.png</string>
 		<key>friends</key>
@@ -35,7 +35,7 @@
 		<key>isExpanded</key>
 		<false/>
 		<key>relations</key>
-		<string>同事</string>
+		<string>1你的位置</string>
 		<key>imageString</key>
 		<string>carat.png</string>
 		<key>friends</key>
@@ -88,7 +88,7 @@
 		<key>isExpanded</key>
 		<false/>
 		<key>relations</key>
-		<string>朋友</string>
+		<string>2朋友</string>
 		<key>imageString</key>
 		<string>carat.png</string>
 		<key>friends</key>
@@ -165,7 +165,7 @@
 		<key>isExpanded</key>
 		<false/>
 		<key>relations</key>
-		<string>设置</string>
+		<string>3设置</string>
 		<key>imageString</key>
 		<string>carat.png</string>
 		<key>friends</key>
@@ -194,7 +194,7 @@
 		<key>isExpanded</key>
 		<false/>
 		<key>relations</key>
-		<string>故障诊断</string>
+		<string>4故障诊断</string>
 		<key>imageString</key>
 		<string>carat.png</string>
 		<key>friends</key>

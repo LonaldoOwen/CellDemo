@@ -53,7 +53,8 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("awakeFromNib")
+        print("#awakeFromNib")
+        print("disclosureButton.isSelected: \(disclosureButton.isSelected)")
         
         // setup UI
         xibBackgroundView.backgroundColor = UIColor.clear
@@ -76,7 +77,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
     func handleLongPress(recognizier: UIGestureRecognizer) {
         // 切换disclosureButton的选中状态
         //disclosureButton.isSelected = !disclosureButton.isSelected
-        print("handleLongPress, disclosureButton.isSelected: \(disclosureButton.isSelected)")
+        print("#handleLongPress, disclosureButton.isSelected: \(disclosureButton.isSelected)")
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
@@ -86,7 +87,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
             print("long press, sectionHeader.isOpened: \(sectionHeader.isOpened)")
             
             if recognizier.state == .began {
-                print("begin")
+                print(".begin")
                 
                 /// 实现section header的hilighted效果
                 // 设置hilighted颜色
@@ -105,7 +106,7 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
                 }, completion: nil)
                 
             } else if recognizier.state == .ended {
-                print("ended")
+                print(".ended")
                 // 切换disclosureButton的选中状态
                 disclosureButton.isSelected = !disclosureButton.isSelected
                 print(".ended,disclosureButton.isSelected:\(disclosureButton.isSelected)")

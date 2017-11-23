@@ -11,9 +11,24 @@
 /// 3、应用代理模式
 /// 4、
 /// 问题：
-/// 1、table滚动后，indicator图像变为收起状态？？？
-/// 2、section展开，table滚动后，再点击section收起时，crash？？？
+/// 1、table滚动后，indicator图像变为收起状态
+/// 原因：table滚动会复用cell和section，disclosureButton的默认图片是关闭的
+/// 解决：disclosureButton可以控制选择中的图片，展开后disclosureButton的isSelected变为false，这时需要设置.normal状态下的图像为open
 ///
+/// 2、section展开，table滚动后，再点击section收起时，crash
+/// 原因：调用代理方法时，根据disclosureButton.isSelected判断，复用后会不准
+/// 解决：修改判断条件为：!sectionHeader.isOpened；增加一个isOpened属性存储展开收起状态
+///
+/// 3、table滚动时，展开底部section出现cell重合和重复？？？（模拟器出现的，iOS10真机未出现，iOS11真机？？？）
+/// 原因：
+/// 解决：
+///
+///
+///
+///
+
+
+
 
 import UIKit
 
@@ -43,7 +58,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
 //        let tableFooter = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
 //        tableFooter.backgroundColor = UIColor.lightGray
 //        tableView.tableFooterView = tableFooter
-        tableView.tableFooterView = UIView()
+        //tableView.tableFooterView = UIView()
         
         // 注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: kFriendsCellIdentifier)
@@ -118,11 +133,11 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        print("viewForHeaderInSection, section: \(section)")
+        print("#viewForHeaderInSection, section: \(section)")
         
         let sectionHeader: CustomHeaderOfFind = tableView.dequeueReusableHeaderFooterView(withIdentifier: kSectionHeaderIdentifier) as! CustomHeaderOfFind
         
-        /// 问题：
+        /// 问题：添加long press gesture时，target设置错误
         /// [CellDemo.CustomHeaderOfFind handleLongPressWithRecognizier:]: unrecognized selector sent to instance 0x7fca59d4fd60'???
         /// 原因：target设置错了
         /// 解决：将sectionHeader改为self
@@ -131,12 +146,18 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
 //        sectionHeader.addGestureRecognizer(longPressGesture)
         
         let item = self.lists[section]
-        sectionHeader.disclosureButton.setImage(UIImage.init(named: item.imageString), for: .normal)
+   
         sectionHeader.titleLabel.text = item.relations
         sectionHeader.section = section
         sectionHeader.isSelected = item.isExpanded
         sectionHeader.isOpened = item.isExpanded
         
+        // section复用时，如果已经展开，设置indicator的normal状态图片为open
+        if sectionHeader.isOpened {
+            sectionHeader.disclosureButton.setImage(UIImage.init(named: "carat-open.png"), for: .normal)
+        } else {
+            sectionHeader.disclosureButton.setImage(UIImage.init(named: "carat.png"), for: .normal)
+        }
         sectionHeader.delegate = self
         
         return sectionHeader
@@ -147,7 +168,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
     // MARK: Table view delegate
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        print("willDisplayHeaderView")
+        print("#willDisplayHeaderView")
         //let sectionHeader: CustomHeaderOfFind = view as! CustomHeaderOfFind
         // 验证修改默认section header颜色
         /// 修改contentView的backgroudColor时使用clear color不管用
@@ -166,18 +187,19 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
     // MARK: SectionHeaderViewDelegate
     // 展开section方法
     func sectionHeaderView(_ sectionHeaderView: CustomHeaderOfFind, sectionOpened: Int) {
-        print("opened section: \(sectionOpened)")
+        print("#Opened section: \(sectionOpened)")
         
         let item = self.lists[sectionOpened]
-        
         // 展开
         item.isExpanded = true
         sectionHeaderView.isSelected = true
         sectionHeaderView.isOpened = true
         
         // 更新section
+        // 方法一：reload sections
         //self.tableView.reloadSections(IndexSet.init(integer: sectionOpened), with: .none)
-        
+       
+        // 方法二：insert rows（展开时使用此方法，不会reload section，只插入rows）
         // Create an array containing the index paths of the rows to insert:
         var indexPathsToInsert: [IndexPath] = []    // empty array
         guard let countOfRowsToInsert = item.friends?.count else { return }
@@ -185,20 +207,18 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
             let indexPath = IndexPath(row: i, section: sectionOpened)
             indexPathsToInsert.append(indexPath)
         }
-        
         // style the animation so that there's a smooth flow in either direction
         let insertAnimation: UITableViewRowAnimation = UITableViewRowAnimation.automatic
-        
         // apply the updates
 //        self.tableView.beginUpdates()
-//        self.tableView.insertRows(at: indexPathsToInsert, with: insertAnimation)
-//        self.tableView.endUpdates()
         self.tableView.insertRows(at: indexPathsToInsert, with: insertAnimation)
+//        self.tableView.endUpdates()
+        
     }
     
     // 收起section方法
     func sectionHeaderView(_ sectionHeaderView: CustomHeaderOfFind, sectionClosed: Int) {
-        print("closed section: \(sectionClosed)")
+        print("#Closed section: \(sectionClosed)")
         
         let item = self.lists[sectionClosed]
         
@@ -206,7 +226,16 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         item.isExpanded = false
         sectionHeaderView.isSelected = false
         sectionHeaderView.isOpened = false
-    
+//        if !sectionHeaderView.isOpened {
+//            sectionHeaderView.disclosureButton.setImage(UIImage.init(named: "carat.png"), for: .normal)
+//        }
+        
+        // 更新section
+        // 方法一：reload section（收起时使用此方法，reload sections，恢复默认状态）
+        self.tableView.reloadSections(IndexSet.init(integer: sectionClosed), with: .automatic)
+        
+        // 方法二：delete rows
+        /*
         // Create an array containing the index paths of the rows to insert:
         var indexPathsToDelete: [IndexPath] = []
         guard let countOfRowsToInsert = item.friends?.count else { return }
@@ -219,9 +248,10 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         let insertAnimation: UITableViewRowAnimation = UITableViewRowAnimation.bottom
         
         // apply the updates
-        self.tableView.beginUpdates()
+        //self.tableView.beginUpdates()
         self.tableView.deleteRows(at: indexPathsToDelete, with: insertAnimation)
-        self.tableView.endUpdates()
+        //self.tableView.endUpdates()
+        */
     }
     
     

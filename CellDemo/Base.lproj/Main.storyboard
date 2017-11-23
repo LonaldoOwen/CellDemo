@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CellDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="C9h-I4-WBn"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Hf-6k-vIs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -163,8 +163,8 @@
             <objects>
                 <viewController id="cGr-PV-4TH" customClass="TempViewController" customModule="CellDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uKA-0F-Ciu"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lbd-xW-TBM"/>
+                        <viewControllerLayoutGuide type="top" id="uWM-Yv-Kaz"/>
+                        <viewControllerLayoutGuide type="bottom" id="s1s-5Y-6r5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uoD-pK-s5v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
