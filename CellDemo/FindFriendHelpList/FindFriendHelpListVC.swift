@@ -19,13 +19,14 @@
 /// 原因：调用代理方法时，根据disclosureButton.isSelected判断，复用后会不准
 /// 解决：修改判断条件为：!sectionHeader.isOpened；增加一个isOpened属性存储展开收起状态
 ///
-/// 3、table滚动时，展开底部section出现cell重合和重复？？？（模拟器出现的，iOS10真机未出现，iOS11真机？？？）
+/// 3、table滚动时，展开底部section出现cell重合和重复？？？（iOS11、iphone8模拟器出现的，iOS10真机未出现，iOS11真机出现）
+/// 原因：iOS11的UITableView 默认开启了Self-Sizing功能，estimatedSectionHeaderHeight属性的值默认为UITableViewAutomaticDimension
+/// 解决：
+/// 方法一：非Self-Sizing方式，iOS11之前，estimatedSectionHeaderHeight设置为0，sectionHeaderHeight=60；
+/// 方法二：Self-Sizing方式
+/// 4、按住section header移动手指，选中效果未消失、tableView未滚动？？？
 /// 原因：
 /// 解决：
-///
-///
-///
-///
 
 
 
@@ -52,7 +53,12 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         
         //
         self.title = "FindFriendHelpVC"
-        tableView.sectionHeaderHeight = 60
+        // 非Self-Sizing
+//        tableView.estimatedSectionHeaderHeight = 0
+//        tableView.sectionHeaderHeight = 60
+        // Self-Sizing
+        tableView.estimatedSectionHeaderHeight = 60
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         
         // 设置tableFooterView（不想看到table中的空cell）
 //        let tableFooter = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 80))
@@ -156,6 +162,7 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         if sectionHeader.isOpened {
             sectionHeader.disclosureButton.setImage(UIImage.init(named: "carat-open.png"), for: .normal)
         } else {
+            sectionHeader.disclosureButton.isSelected = false   /// #解决section indicator展开、收起状态错误
             sectionHeader.disclosureButton.setImage(UIImage.init(named: "carat.png"), for: .normal)
         }
         sectionHeader.delegate = self
@@ -182,6 +189,12 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    //
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //
+        print(scrollView.contentOffset)
+    }
     
     
     // MARK: SectionHeaderViewDelegate

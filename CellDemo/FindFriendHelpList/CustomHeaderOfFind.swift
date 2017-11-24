@@ -146,6 +146,32 @@ class CustomHeaderOfFind: UITableViewHeaderFooterView {
                     }
                 }
                 
+            } else if recognizier.state == .changed {
+                print(".changed")
+                // 取消gesture
+                recognizier.isEnabled = false
+                self.resignFirstResponder()
+            } else if recognizier.state == .cancelled {
+                print(".cancelled")
+                recognizier.isEnabled = true
+                
+                // 展示fade动画
+                // 取消hilighted颜色
+                UIView.animate(withDuration: 0.1, delay: 0.2, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    //
+                    //self.subviews[1].backgroundColor = UIColor.white
+                    let customBackgroundView = self.subviews[1]
+                    customBackgroundView.backgroundColor = UIColor.white
+                    customBackgroundView.alpha = 1.0
+                    
+                    //                    self.backgroundView?.alpha = 0.0
+                    //                    self.backgroundView?.backgroundColor = UIColor.white
+                    
+                }, completion: { (complete) in
+                    if complete {
+                        //self.backgroundView = nil
+                    }
+                })
             }
         }
     }

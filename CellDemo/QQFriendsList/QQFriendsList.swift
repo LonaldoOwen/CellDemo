@@ -122,7 +122,9 @@ class QQFriendsList: UITableViewController {
             // 旋转图像（默认需要都设置为isExpanded==false）
             // 如果isExpanded==true，则顺时针旋转90度
             // 如果isExpanded==false，则取消旋转，恢复原样
-            sectionHeader.indicatorImage.transform = item.isExpanded ? CGAffineTransform.init(rotationAngle: CGFloat(M_PI_2)): CGAffineTransform.identity
+            /// M_PI_2废弃了，改为:
+            /// 'M_PI_2' is deprecated: Please use 'Double.pi / 2' or '.pi / 2' to get the value of correct type and avoid casting.
+            sectionHeader.indicatorImage.transform = item.isExpanded ? CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2)): CGAffineTransform.identity
         })
         
         // show or hidden seperator view（步骤一）
