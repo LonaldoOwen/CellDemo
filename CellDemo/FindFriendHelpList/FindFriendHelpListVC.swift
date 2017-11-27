@@ -159,7 +159,9 @@ class FindFriendHelpListVC: UITableViewController, SectionHeaderViewDelegate {
         sectionHeader.isOpened = item.isExpanded
         
         // section复用时，如果已经展开，设置indicator的normal状态图片为open
-        if sectionHeader.isOpened {
+        /// Swift3.0.2: if sectionHeader.isOpened {}报错：“Type 'Bool' is broken”
+        /// 解决：强制unrap,if sectionHeader.isOpened! {}
+        if sectionHeader.isOpened! {
             sectionHeader.disclosureButton.setImage(UIImage.init(named: "carat-open.png"), for: .normal)
         } else {
             sectionHeader.disclosureButton.isSelected = false   /// #解决section indicator展开、收起状态错误
