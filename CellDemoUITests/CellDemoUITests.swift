@@ -33,4 +33,12 @@ class CellDemoUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testCellIndex4() {
+        let app = XCUIApplication()
+        let cellQuery = app.cells
+        let cellIndex4 = cellQuery.element(boundBy: 4)
+        cellIndex4.tap()
+        XCTAssertEqual(app.navigationBars.element.identifier, "CellList", "Failed to enter new VC!")
+    }
+    
 }
